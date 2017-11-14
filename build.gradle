@@ -1,0 +1,24 @@
+apply {
+    plugin 'groovy'
+}
+
+compileJava.options.encoding = 'UTF-8'
+repositories {
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    // Groovy & Spock
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4')
+
+    // Test Container with Selenium Driver
+    testCompile('org.testcontainers:testcontainers:1.4.3')
+    testCompile('org.testcontainers:selenium:1.4.3')
+    testCompile('com.github.testcontainers:testcontainers-spock:-SNAPSHOT')
+    testCompile('org.seleniumhq.selenium:selenium-remote-driver:2.52.0')
+}
+
+task wrapper(type: Wrapper) {
+    distributionUrl='https://services.gradle.org/distributions/gradle-4.3.1-all.zip'
+}
