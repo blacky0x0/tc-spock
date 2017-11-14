@@ -8,7 +8,7 @@ import org.testcontainers.containers.BrowserWebDriverContainer
 import spock.lang.Shared
 import spock.lang.Specification
 
-import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.RECORD_FAILING
+import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL
 
 @Slf4j
 @Testcontainers
@@ -17,7 +17,7 @@ class Example extends Specification {
     @Shared
     BrowserWebDriverContainer container = new BrowserWebDriverContainer()
             .withDesiredCapabilities(DesiredCapabilities.chrome())
-            .withRecordingMode(RECORD_FAILING, new File("."))
+            .withRecordingMode(RECORD_ALL, new File("./"))
 
     RemoteWebDriver driver
 
